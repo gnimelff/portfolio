@@ -161,9 +161,9 @@ function SocialLink({ href, label, isFooter = false }: { href: string; label: st
 }
 
 function MockupSwitcher({ project }: any) {
-  if (project.title === "SWEATBET") return <div style={{ transform: "translateZ(0)", WebkitTransform: "translateZ(0)" }} className="flex -space-x-20 scale-125 drop-shadow-[0_40px_100px_rgba(0,0,0,0.9)]"><Image src={sweatbet1} alt="Stakes" className="w-56 rounded-[3rem] border-4 border-zinc-900 shadow-2xl rotate-[-6deg]" priority /><Image src={sweatbet2} alt="Duel" className="w-56 rounded-[3rem] border-4 border-zinc-900 shadow-2xl mt-24 rotate-[6deg]" priority /></div>;
-  if (project.title === "HUT FINDER") return <div style={{ transform: "translateZ(0)", WebkitTransform: "translateZ(0)" }} className="w-[600px] relative"><Image src={hutfinder} alt="Map" className="w-full rounded-2xl shadow-2xl grayscale opacity-30" priority /><motion.div initial={{ x: 40, y: 40 }} animate={{ x: 0, y: 0 }} className="absolute -bottom-16 -right-16 w-80 shadow-2xl rounded-2xl border border-white/10 overflow-hidden"><Image src={frenchRidge} alt="Logic" className="w-full" priority /></motion.div></div>;
-  if (project.title === "BEARING") return <div style={{ transform: "translateZ(0)", WebkitTransform: "translateZ(0)" }} className="relative flex items-center justify-center scale-150"><div className="absolute inset-0 flex items-center justify-center">{[1, 2, 3].map(i => <div key={i} className="absolute border border-white/10 rounded-full" style={{ width: i*140, height: i*140 }} />)}</div><div className="relative w-52 rounded-[3.5rem] border-8 border-zinc-900 overflow-hidden shadow-2xl"><Image src={bearing} alt="App" className="w-full" priority /></div></div>;
+  if (project.title === "SWEATBET") return <div style={{ transform: "translateZ(0)", WebkitTransform: "translateZ(0)" }} className="flex -space-x-20 scale-125 drop-shadow-[0_40px_100px_rgba(0,0,0,0.9)]"><img src={sweatbet1.src} alt="Stakes" className="w-56 rounded-[3rem] border-4 border-zinc-900 shadow-2xl rotate-[-6deg]" /><img src={sweatbet2.src} alt="Duel" className="w-56 rounded-[3rem] border-4 border-zinc-900 shadow-2xl mt-24 rotate-[6deg]" /></div>;
+  if (project.title === "HUT FINDER") return <div style={{ transform: "translateZ(0)", WebkitTransform: "translateZ(0)" }} className="w-[600px] relative"><img src={hutfinder.src} alt="Map" className="w-full rounded-2xl shadow-2xl grayscale opacity-30" /><motion.div initial={{ x: 40, y: 40 }} animate={{ x: 0, y: 0 }} className="absolute -bottom-16 -right-16 w-80 shadow-2xl rounded-2xl border border-white/10 overflow-hidden"><img src={frenchRidge.src} alt="Logic" className="w-full" /></motion.div></div>;
+  if (project.title === "BEARING") return <div style={{ transform: "translateZ(0)", WebkitTransform: "translateZ(0)" }} className="relative flex items-center justify-center scale-150"><div className="absolute inset-0 flex items-center justify-center">{[1, 2, 3].map(i => <div key={i} className="absolute border border-white/10 rounded-full" style={{ width: i*140, height: i*140 }} />)}</div><div className="relative w-52 rounded-[3.5rem] border-8 border-zinc-900 overflow-hidden shadow-2xl"><img src={bearing.src} alt="App" className="w-full" /></div></div>;
   if (project.title === "ESCAPE LONDON") return (
     <div style={{ transform: "translateZ(0)", WebkitTransform: "translateZ(0)" }} className="relative w-[600px] h-full flex items-center justify-center p-6 md:p-12 group">
       {/* MAIN BROWSER FRAME */}
@@ -188,11 +188,10 @@ function MockupSwitcher({ project }: any) {
 
         {/* The App Dashboard Screenshot */}
         <div className="w-full h-full grayscale-[0.4] group-hover:grayscale-0 opacity-[0.65] transition-all duration-500 flex">
-          <Image 
-            src={escapeMain} 
+          <img 
+            src={escapeMain.src} 
             className="w-full h-auto object-cover object-top" 
             alt="Escape London Dashboard" 
-            priority
           />
         </div>
       </motion.div>
@@ -207,11 +206,10 @@ function MockupSwitcher({ project }: any) {
       >
         <div className="rounded-[2rem] border border-white/20 overflow-hidden shadow-inner bg-white/10 backdrop-blur-md flex items-center justify-center">
           <div className="w-full h-full scale-[1.11] overflow-hidden rounded-[2rem]">
-            <Image 
-              src={escapeModal} 
+            <img 
+              src={escapeModal.src} 
               className="w-full h-auto object-cover" 
               alt="Unlock Feature Detail" 
-              priority
             />
           </div>
         </div>
