@@ -118,7 +118,7 @@ export default function ZacharyFlemingPortfolio() {
                    <a href={p.link} target="_blank" className="bg-white text-black p-5 rounded-full opacity-0 translate-y-8 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-700 shadow-2xl hover:scale-110 active:scale-95"><ExternalLink size={24} /></a>
                 </div>
               </div>
-              <motion.div style={{ willChange: "opacity, transform", transform: "translateZ(0)", WebkitTransform: "translateZ(0)", backfaceVisibility: "hidden", WebkitBackfaceVisibility: "hidden" }} initial={false} animate={{ opacity: (hoveredIndex === idx || (hoveredIndex === null && idx === 0)) ? 1 : 0, x: (hoveredIndex === idx || (hoveredIndex === null && idx === 0)) ? 0 : 120 }} transition={{ duration: 0.2 }} className={`absolute inset-0 pointer-events-none flex items-center justify-center pr-0 md:justify-end py-4 z-0 transition-all duration-300 ${p.title === "ESCAPE LONDON" ? "md:pr-0" : "md:pr-32"}`}><div className="opacity-20 md:opacity-100"><MockupSwitcher project={p} /></div></motion.div>
+              <motion.div style={{ willChange: "opacity, transform", transform: "translateZ(0)", WebkitTransform: "translateZ(0)", backfaceVisibility: "hidden", WebkitBackfaceVisibility: "hidden" }} initial={false} animate={{ opacity: (hoveredIndex === idx || (hoveredIndex === null && idx === 0)) ? 1 : 0.0001, x: (hoveredIndex === idx || (hoveredIndex === null && idx === 0)) ? 0 : 120, pointerEvents: (hoveredIndex === idx || (hoveredIndex === null && idx === 0)) ? "auto" : "none" }} transition={{ duration: 0.2 }} className={`absolute inset-0 flex items-center justify-center pr-0 md:justify-end py-4 z-0 transition-all duration-300 ${p.title === "ESCAPE LONDON" ? "md:pr-0" : "md:pr-32"}`}><div className="opacity-20 md:opacity-100"><MockupSwitcher project={p} /></div></motion.div>
             </div>
           ))}
         </div>
@@ -161,9 +161,9 @@ function SocialLink({ href, label, isFooter = false }: { href: string; label: st
 }
 
 function MockupSwitcher({ project }: any) {
-  if (project.title === "SWEATBET") return <div style={{ transform: "translateZ(0)", WebkitTransform: "translateZ(0)" }} className="flex -space-x-20 scale-125 drop-shadow-[0_40px_100px_rgba(0,0,0,0.9)]"><Image src={sweatbet1} alt="Stakes" className="w-56 rounded-[3rem] border-4 border-zinc-900 shadow-2xl rotate-[-6deg]" placeholder="blur" priority /><Image src={sweatbet2} alt="Duel" className="w-56 rounded-[3rem] border-4 border-zinc-900 shadow-2xl mt-24 rotate-[6deg]" placeholder="blur" priority /></div>;
-  if (project.title === "HUT FINDER") return <div style={{ transform: "translateZ(0)", WebkitTransform: "translateZ(0)" }} className="w-[600px] relative"><Image src={hutfinder} alt="Map" className="w-full rounded-2xl shadow-2xl grayscale opacity-30" placeholder="blur" priority /><motion.div initial={{ x: 40, y: 40 }} animate={{ x: 0, y: 0 }} className="absolute -bottom-16 -right-16 w-80 shadow-2xl rounded-2xl border border-white/10 overflow-hidden"><Image src={frenchRidge} alt="Logic" className="w-full" placeholder="blur" priority /></motion.div></div>;
-  if (project.title === "BEARING") return <div style={{ transform: "translateZ(0)", WebkitTransform: "translateZ(0)" }} className="relative flex items-center justify-center scale-150"><div className="absolute inset-0 flex items-center justify-center">{[1, 2, 3].map(i => <div key={i} className="absolute border border-white/10 rounded-full" style={{ width: i*140, height: i*140 }} />)}</div><div className="relative w-52 rounded-[3.5rem] border-8 border-zinc-900 overflow-hidden shadow-2xl"><Image src={bearing} alt="App" className="w-full" placeholder="blur" priority /></div></div>;
+  if (project.title === "SWEATBET") return <div style={{ transform: "translateZ(0)", WebkitTransform: "translateZ(0)" }} className="flex -space-x-20 scale-125 drop-shadow-[0_40px_100px_rgba(0,0,0,0.9)]"><Image src={sweatbet1} alt="Stakes" className="w-56 rounded-[3rem] border-4 border-zinc-900 shadow-2xl rotate-[-6deg]" priority /><Image src={sweatbet2} alt="Duel" className="w-56 rounded-[3rem] border-4 border-zinc-900 shadow-2xl mt-24 rotate-[6deg]" priority /></div>;
+  if (project.title === "HUT FINDER") return <div style={{ transform: "translateZ(0)", WebkitTransform: "translateZ(0)" }} className="w-[600px] relative"><Image src={hutfinder} alt="Map" className="w-full rounded-2xl shadow-2xl grayscale opacity-30" priority /><motion.div initial={{ x: 40, y: 40 }} animate={{ x: 0, y: 0 }} className="absolute -bottom-16 -right-16 w-80 shadow-2xl rounded-2xl border border-white/10 overflow-hidden"><Image src={frenchRidge} alt="Logic" className="w-full" priority /></motion.div></div>;
+  if (project.title === "BEARING") return <div style={{ transform: "translateZ(0)", WebkitTransform: "translateZ(0)" }} className="relative flex items-center justify-center scale-150"><div className="absolute inset-0 flex items-center justify-center">{[1, 2, 3].map(i => <div key={i} className="absolute border border-white/10 rounded-full" style={{ width: i*140, height: i*140 }} />)}</div><div className="relative w-52 rounded-[3.5rem] border-8 border-zinc-900 overflow-hidden shadow-2xl"><Image src={bearing} alt="App" className="w-full" priority /></div></div>;
   if (project.title === "ESCAPE LONDON") return (
     <div style={{ transform: "translateZ(0)", WebkitTransform: "translateZ(0)" }} className="relative w-[600px] h-full flex items-center justify-center p-6 md:p-12 group">
       {/* MAIN BROWSER FRAME */}
@@ -192,7 +192,6 @@ function MockupSwitcher({ project }: any) {
             src={escapeMain} 
             className="w-full h-auto object-cover object-top" 
             alt="Escape London Dashboard" 
-            placeholder="blur"
             priority
           />
         </div>
@@ -212,7 +211,6 @@ function MockupSwitcher({ project }: any) {
               src={escapeModal} 
               className="w-full h-auto object-cover" 
               alt="Unlock Feature Detail" 
-              placeholder="blur"
               priority
             />
           </div>
