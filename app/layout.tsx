@@ -16,6 +16,9 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Zachary Fleming | Portfolio",
   description: "Senior Software Engineer Portfolio",
+  icons: {
+    icon: "/favicon.svg",
+  },
 };
 
 export default function RootLayout({
