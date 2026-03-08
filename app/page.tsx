@@ -1,8 +1,17 @@
 "use client";
 
 import React, { useState, useEffect } from 'react';
+import Image from 'next/image';
 import { motion, AnimatePresence, useScroll, useSpring } from 'framer-motion';
 import { ExternalLink, ChevronDown } from 'lucide-react';
+
+import sweatbet1 from '../public/sweatbet1.png';
+import sweatbet2 from '../public/sweatbet2.png';
+import hutfinder from '../public/hutfinder.png';
+import frenchRidge from '../public/french-ridge-popup.png';
+import bearing from '../public/bearing.png';
+import escapeMain from '../public/escape-main.png';
+import escapeModal from '../public/escape-modal.png';
 
 export default function ZacharyFlemingPortfolio() {
   const [debug, setDebug] = useState(true);
@@ -109,7 +118,7 @@ export default function ZacharyFlemingPortfolio() {
                    <a href={p.link} target="_blank" className="bg-white text-black p-5 rounded-full opacity-0 translate-y-8 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-700 shadow-2xl hover:scale-110 active:scale-95"><ExternalLink size={24} /></a>
                 </div>
               </div>
-              <AnimatePresence>{(hoveredIndex === idx || (hoveredIndex === null && idx === 0)) && (<motion.div initial={{ opacity: 0, x: 120 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: 120 }} className="absolute inset-0 pointer-events-none flex items-center justify-center pr-0 md:justify-end md:pr-32 py-4 z-0"><div className="opacity-20 md:opacity-100"><MockupSwitcher project={p} /></div></motion.div>)}</AnimatePresence>
+              <AnimatePresence>{(hoveredIndex === idx || (hoveredIndex === null && idx === 0)) && (<motion.div initial={{ opacity: 0, x: 120 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: 120 }} transition={{ duration: 0.2 }} className={`absolute inset-0 pointer-events-none flex items-center justify-center pr-0 md:justify-end py-4 z-0 transition-all duration-300 ${p.title === "ESCAPE LONDON" ? "md:pr-0" : "md:pr-32"}`}><div className="opacity-20 md:opacity-100"><MockupSwitcher project={p} /></div></motion.div>)}</AnimatePresence>
             </div>
           ))}
         </div>
@@ -152,17 +161,17 @@ function SocialLink({ href, label, isFooter = false }: { href: string; label: st
 }
 
 function MockupSwitcher({ project }: any) {
-  if (project.title === "SWEATBET") return <div className="flex -space-x-20 scale-125 drop-shadow-[0_40px_100px_rgba(0,0,0,0.9)]"><img src="/sweatbet1.png" alt="Stakes" className="w-56 rounded-[3rem] border-4 border-zinc-900 shadow-2xl rotate-[-6deg]" /><img src="/sweatbet2.png" alt="Duel" className="w-56 rounded-[3rem] border-4 border-zinc-900 shadow-2xl mt-24 rotate-[6deg]" /></div>;
-  if (project.title === "HUT FINDER") return <div className="w-[600px] relative"><img src="/hutfinder.png" alt="Map" className="w-full rounded-2xl shadow-2xl grayscale opacity-30" /><motion.img initial={{ x: 40, y: 40 }} animate={{ x: 0, y: 0 }} src="/french-ridge-popup.png" alt="Logic" className="absolute -bottom-16 -right-16 w-80 shadow-2xl rounded-2xl border border-white/10" /></div>;
-  if (project.title === "BEARING") return <div className="relative flex items-center justify-center scale-150"><div className="absolute inset-0 flex items-center justify-center">{[1, 2, 3].map(i => <div key={i} className="absolute border border-white/10 rounded-full" style={{ width: i*140, height: i*140 }} />)}</div><div className="relative w-52 rounded-[3.5rem] border-8 border-zinc-900 overflow-hidden shadow-2xl"><img src="/bearing.png" alt="App" className="w-full" /></div></div>;
+  if (project.title === "SWEATBET") return <div className="flex -space-x-20 scale-125 drop-shadow-[0_40px_100px_rgba(0,0,0,0.9)]"><Image src={sweatbet1} alt="Stakes" className="w-56 rounded-[3rem] border-4 border-zinc-900 shadow-2xl rotate-[-6deg]" placeholder="blur" priority /><Image src={sweatbet2} alt="Duel" className="w-56 rounded-[3rem] border-4 border-zinc-900 shadow-2xl mt-24 rotate-[6deg]" placeholder="blur" priority /></div>;
+  if (project.title === "HUT FINDER") return <div className="w-[600px] relative"><Image src={hutfinder} alt="Map" className="w-full rounded-2xl shadow-2xl grayscale opacity-30" placeholder="blur" /><motion.div initial={{ x: 40, y: 40 }} animate={{ x: 0, y: 0 }} className="absolute -bottom-16 -right-16 w-80 shadow-2xl rounded-2xl border border-white/10 overflow-hidden"><Image src={frenchRidge} alt="Logic" className="w-full" placeholder="blur" /></motion.div></div>;
+  if (project.title === "BEARING") return <div className="relative flex items-center justify-center scale-150"><div className="absolute inset-0 flex items-center justify-center">{[1, 2, 3].map(i => <div key={i} className="absolute border border-white/10 rounded-full" style={{ width: i*140, height: i*140 }} />)}</div><div className="relative w-52 rounded-[3.5rem] border-8 border-zinc-900 overflow-hidden shadow-2xl"><Image src={bearing} alt="App" className="w-full" placeholder="blur" /></div></div>;
   if (project.title === "ESCAPE LONDON") return (
     <div className="relative w-[600px] h-full flex items-center justify-center p-6 md:p-12 group">
       {/* MAIN BROWSER FRAME */}
       <motion.div 
         initial={{ rotateX: 5, rotateY: -5, opacity: 0.9 }}
         animate={{ rotateX: 0, rotateY: 0, opacity: 1 }}
-        transition={{ duration: 1.2, ease: "circOut" }}
-        className="relative w-full aspect-[16/10] bg-[#F8F9FA] rounded-xl overflow-hidden shadow-2xl border border-white/10"
+        transition={{ duration: 0.6, ease: "circOut" }}
+        className="relative w-full aspect-[16/10] bg-[#F8F9FA] rounded-[2rem] overflow-hidden shadow-2xl border border-white/10"
       >
         {/* macOS Browser Chrome */}
         <div className="bg-white px-4 py-3 border-b border-zinc-200 flex items-center justify-between">
@@ -178,29 +187,33 @@ function MockupSwitcher({ project }: any) {
         </div>
 
         {/* The App Dashboard Screenshot */}
-        <div className="w-full h-full grayscale-[0.4] group-hover:grayscale-0 transition-all duration-1000">
-          <img 
-            src="/escape-main.png" 
+        <div className="w-full h-full grayscale-[0.4] group-hover:grayscale-0 opacity-[0.65] transition-all duration-500 flex">
+          <Image 
+            src={escapeMain} 
             className="w-full h-auto object-cover object-top" 
             alt="Escape London Dashboard" 
+            placeholder="blur"
           />
         </div>
       </motion.div>
 
       {/* THE "UNLOCK" MODAL (Detached & Floated) */}
       <motion.div 
-        initial={{ y: 40, x: 20, opacity: 0, scale: 0.95 }}
-        animate={{ y: 0, x: 0, opacity: 1, scale: 1 }}
-        whileHover={{ y: -5, x: -5, transition: { duration: 0.2 } }}
-        transition={{ delay: 0.4, duration: 0.8, ease: "circOut" }}
-        className="absolute z-30 w-[80%] md:w-[60%] drop-shadow-[0_40px_100px_rgba(0,0,0,0.4)]"
+        initial={{ y: 20, x: 25, opacity: 0, scale: 0.95 }}
+        animate={{ y: 0, x: 30, opacity: 1, scale: 1 }}
+        whileHover={{ y: -10, x: 20, scale: 1.02, transition: { duration: 0.2, ease: "easeOut" } }}
+        transition={{ delay: 0.2, duration: 0.4, ease: "circOut" }}
+        className="absolute z-30 w-[72%] md:w-[54%] drop-shadow-[0_40px_100px_rgba(0,0,0,0.4)]"
       >
-        <div className="rounded-2xl border border-white/20 overflow-hidden shadow-inner bg-white/10 backdrop-blur-md">
-          <img 
-            src="/escape-modal.png" 
-            className="w-full h-auto" 
-            alt="Unlock Feature Detail" 
-          />
+        <div className="rounded-[2rem] border border-white/20 overflow-hidden shadow-inner bg-white/10 backdrop-blur-md flex items-center justify-center">
+          <div className="w-full h-full scale-[1.11] overflow-hidden rounded-[2rem]">
+            <Image 
+              src={escapeModal} 
+              className="w-full h-auto object-cover" 
+              alt="Unlock Feature Detail" 
+              placeholder="blur"
+            />
+          </div>
         </div>
       </motion.div>
 
@@ -214,7 +227,7 @@ function MockupSwitcher({ project }: any) {
       </motion.div>
 
       {/* AMBIENT BLUE GLOW (Matches Logo/Sky) */}
-      <div className="absolute inset-0 bg-blue-500/5 blur-[120px] rounded-full pointer-events-none -z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-1000" />
+      <div className="absolute inset-0 bg-blue-500/5 blur-[120px] rounded-full pointer-events-none -z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
     </div>
   );
   return null;
