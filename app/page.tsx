@@ -118,7 +118,7 @@ export default function ZacharyFlemingPortfolio() {
                    <a href={p.link} target="_blank" className="bg-white text-black p-5 rounded-full opacity-0 translate-y-8 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-700 shadow-2xl hover:scale-110 active:scale-95"><ExternalLink size={24} /></a>
                 </div>
               </div>
-              <AnimatePresence>{(hoveredIndex === idx || (hoveredIndex === null && idx === 0)) && (<motion.div initial={{ opacity: 0, x: 120 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: 120 }} transition={{ duration: 0.2 }} className={`absolute inset-0 pointer-events-none flex items-center justify-center pr-0 md:justify-end py-4 z-0 transition-all duration-300 ${p.title === "ESCAPE LONDON" ? "md:pr-0" : "md:pr-32"}`}><div className="opacity-20 md:opacity-100"><MockupSwitcher project={p} /></div></motion.div>)}</AnimatePresence>
+              <motion.div initial={false} animate={{ opacity: (hoveredIndex === idx || (hoveredIndex === null && idx === 0)) ? 1 : 0, x: (hoveredIndex === idx || (hoveredIndex === null && idx === 0)) ? 0 : 120 }} transition={{ duration: 0.2 }} className={`absolute inset-0 pointer-events-none flex items-center justify-center pr-0 md:justify-end py-4 z-0 transition-all duration-300 ${p.title === "ESCAPE LONDON" ? "md:pr-0" : "md:pr-32"}`}><div className="opacity-20 md:opacity-100"><MockupSwitcher project={p} /></div></motion.div>
             </div>
           ))}
         </div>
