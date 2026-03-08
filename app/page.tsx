@@ -54,7 +54,7 @@ export default function ZacharyFlemingPortfolio() {
         <div className="grid grid-cols-1 md:grid-cols-12 gap-0">
           
           {/* LEFT: NAME - 6 Columns */}
-          <div className="md:col-span-6 pt-[10vh] pb-[10vh]">
+          <div className="md:col-span-6 pt-[6vh] pb-6 md:pt-[10vh] md:pb-[10vh]">
             <h1 className="text-[14vw] md:text-[10.5vw] font-serif leading-[0.8] tracking-tighter uppercase italic text-[#bc9e82]">
               ZACHARY<br/>FLEMING
             </h1>
@@ -70,12 +70,12 @@ export default function ZacharyFlemingPortfolio() {
             </div>
 
             {/* Content Box - Half size of name text */}
-            <div className="w-full text-left md:text-right space-y-10 pl-8 pr-4 pt-24">
+            <div className="w-full text-left md:text-right space-y-10 pl-8 pr-4 pt-8 md:pt-24">
               <h2 className="font-mono text-[4vw] md:text-[2.3vw] tracking-tighter text-white uppercase font-black leading-[0.9] text-right">
                 COMMUNICATIONS / JOURNALISM<br/>iOS & WEB DEVELOPMENT
               </h2>              
               <p className="text-zinc-400 font-serif italic text-lg md:text-xl leading-snug max-w-2xl ml-auto">
-                Journalism in Bloomberg, CBS, Al Jazeera, ITV, Harpers Bazaar,<br/>Channel 9 Australia, Radio New Zealand, and more
+                Journalism in Bloomberg, CBS, Al Jazeera, ITV, Harpers Bazaar,<span className="hidden md:inline"><br/></span><span className="md:hidden"> </span>Channel 9 Australia, Radio New Zealand, and more
               </p>
               
               <div className="flex items-center justify-end gap-6 pb-12">
@@ -109,7 +109,7 @@ export default function ZacharyFlemingPortfolio() {
                    <a href={p.link} target="_blank" className="bg-white text-black p-5 rounded-full opacity-0 translate-y-8 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-700 shadow-2xl hover:scale-110 active:scale-95"><ExternalLink size={24} /></a>
                 </div>
               </div>
-              <AnimatePresence>{(hoveredIndex === idx || (hoveredIndex === null && idx === 0)) && (<motion.div initial={{ opacity: 0, x: 120 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: 120 }} className="absolute inset-0 pointer-events-none flex items-center justify-end pr-32 py-4 z-0"><MockupSwitcher project={p} /></motion.div>)}</AnimatePresence>
+              <AnimatePresence>{(hoveredIndex === idx || (hoveredIndex === null && idx === 0)) && (<motion.div initial={{ opacity: 0, x: 120 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: 120 }} className="absolute inset-0 pointer-events-none flex items-center justify-center pr-0 md:justify-end md:pr-32 py-4 z-0"><div className="opacity-20 md:opacity-100"><MockupSwitcher project={p} /></div></motion.div>)}</AnimatePresence>
             </div>
           ))}
         </div>
