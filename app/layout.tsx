@@ -17,7 +17,10 @@ export const metadata: Metadata = {
   title: "Zachary Fleming | Portfolio",
   description: "Senior Software Engineer Portfolio",
   icons: {
-    icon: "/favicon.svg",
+    icon: [
+      { url: "/favicon.svg", type: "image/svg+xml" },
+    ],
+    apple: "/favicon.svg",
   },
 };
 
