@@ -64,7 +64,7 @@ export default function ZacharyFlemingPortfolio() {
           
           {/* LEFT: NAME - 6 Columns */}
           <div className="md:col-span-6 pt-[6vh] pb-6 md:pt-[10vh] md:pb-[10vh]">
-            <h1 className="text-[14vw] md:text-[10.5vw] font-serif leading-[0.8] tracking-tighter uppercase italic text-[#bc9e82]">
+            <h1 className="text-[14vw] md:text-[10.5vw] font-serif leading-[0.8] tracking-tighter uppercase italic text-[#FBEEAC]">
               ZACHARY<br/>FLEMING
             </h1>
           </div>
